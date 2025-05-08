@@ -8,30 +8,16 @@
     content="user-scalable=no, width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
   <meta name="description" content="Vanilla Javascript form building module" />
   <meta name="theme-color" content="#232323" />
-  <title>Formeo | Drag &amp; Drop Form Creation</title>
+  <title>medicalvalues Form Intelligence</title>
 </head>
 
 <body>
   <div class="site-wrap">
     <header id="demo-header">
-      <nav aria-label="Footer navigation">
-        <ul>
-          <li>
-            <label for="locale">Language</label>
-            <select name="locale" id="locale" class="form-control">
-              <% langFiles.forEach(function(langFile) { %>
-                <option value="<%- langFile.locale %>" dir="<%- langFile.dir %>"><%- langFile.nativeName %></option>
-                <% }); %>
-            </select>
-            <label for="control-filter">Control Filter:</label>
-            <input type="text" id="control-filter" placeholder="ex. text" class="form-control" />
-          </li>
-          <li style="float: right;">
-            v<%= version %>
-          </li>
-        </ul>
-      </nav>
-      <span id="formeo-logo-wrap"></span>
+      <div id="formeo-logo-wrap">
+        <span id="app-logo-text">medicalvalues</span>
+        <span id="app-subtitle">Form Intelligence</span>
+      </div>
     </header>
     <section id="main_content" class="inner">
       <form class="build-form"></form>
@@ -40,26 +26,24 @@
     <div class="container render-btn-wrap" id="editor-action-buttons"></div>
     <div id="formData-popover" popover>
       <div class="popover-header">
-        <h3>Test formData</h3>
+        <h3>Formulardaten</h3>
         <div>
-          <button type="button" id="format-json">Format</button>
-          <button type="button" id="collapse-json">Collapse</button>
-          <button type="button" id="copy-json">Copy to Clipboard</button>
+          <button type="button" id="format-json">Formatieren</button>
+          <button type="button" id="collapse-json">Minimieren</button>
+          <button type="button" id="copy-json">In Zwischenablage kopieren</button>
         </div>
       </div>
       <pre id="formData-editor"></pre>
-      <div class=formData-actions>
-        <button popovertarget="formData-popover" popovertargetaction="hide" type="button">Cancel</button>
-        <button id="submit-formData" type="button">Submit</button>
+      <div class="formData-actions">
+        <button popovertarget="formData-popover" popovertargetaction="hide" type="button">Abbrechen</button>
+        <button id="submit-formData" type="button">Übernehmen</button>
       </div>
     </div>
     <footer id="demo-footer">
       <nav aria-label="Footer navigation">
         <ul>
           <li>
-            <a href="https://github.com/Draggable/formeo" target="_blank" title="View project on GitHub">
-              <img src="assets/img/github.png" width="77" alt="GitHub" />
-            </a>
+            <span>&copy; medicalvalues GmbH</span>
           </li>
         </ul>
       </nav>

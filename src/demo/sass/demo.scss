@@ -10,40 +10,43 @@ html {
 }
 
 body {
-  background: linear-gradient(135deg, #e4efe9 0%, #7db9e8 100%);
+  background-color: #f8f9fa;
   background-attachment: fixed;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: #333;
 }
 
 .site-wrap {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  align-items: center;
+  min-height: 100vh;
+  align-items: stretch;
   justify-content: space-between;
+  background-color: #fff;
 }
 
 #demo-header,
 #demo-footer {
   width: 100%;
+  color: #ffffff;
+  padding: 0;
 }
 
 #demo-header {
-  text-align: center;
-
-  nav {
-    text-align: left;
-    background-color: #efefef;
-    display: block;
-  }
+  background-color: #673AB7;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
 }
 
 #demo-footer {
-  width: 100%;
-
-  nav {
-    background-color: #666;
-    text-align: right;
+  background-color: #673AB7;
+  padding: 15px 0;
+  text-align: center;
+  font-size: 0.9em;
+  nav ul {
+    justify-content: center;
+    padding: 0 20px;
   }
 }
 
@@ -51,21 +54,57 @@ body {
   padding-bottom: 50px;
   flex: 1;
   width: 100%;
+  max-width: 1280px;
+  margin: 20px auto;
+  padding: 20px;
   display: flex;
   flex-direction: column;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 #demo-footer ul,
 #demo-header ul {
   list-style: none;
-  padding: 7px 5px 0;
+  padding: 7px 15px;
   max-width: 1280px;
   margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#demo-header ul {
+  justify-content: flex-start;
+}
+#demo-footer ul {
+ justify-content: center;
 }
 
 #demo-footer li,
 #demo-header li {
   display: inline-block;
+  margin: 0 10px;
+}
+
+#demo-header li label,
+#demo-header li select,
+#demo-header li input {
+  margin-right: 5px;
+  vertical-align: middle;
+  color: #fff;
+}
+#demo-header li select,
+#demo-header li input {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #333;
+}
+#demo-header li input#control-filter {
+  width: 150px;
 }
 
 #demo-footer a,
@@ -74,7 +113,10 @@ body {
   display: inline-block;
   color: #fff;
   text-decoration: none;
-  line-height: 0;
+  line-height: initial;
+}
+#demo-footer nav a img {
+  filter: brightness(0) invert(1);
 }
 
 .inner {
@@ -134,14 +176,25 @@ body {
 
 .render-btn-wrap {
   text-align: center;
-  padding: 32px 0;
+  padding: 20px 0;
   display: flex;
-  gap: 8px;
+  gap: 15px;
+  justify-content: center;
 
   button {
-    padding: 4px 8px;
-    border-radius: 4px;
-    border: 1px solid gray;
+    padding: 12px 25px;
+    border-radius: 5px;
+    border: none;
+    background-color: #673AB7;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #512DA8;
+    }
   }
 }
 
@@ -161,47 +214,51 @@ body {
 @keyframes shimmer {
   0%,
   80% {
-    // Keep shimmer off for the first 80% of the duration
     background-position: -120px 0;
   }
   81% {
-    background-position: 120px 0; // Start shimmer animation briefly
+    background-position: 120px 0;
   }
   100% {
-    background-position: 120px 0; // End with the shimmer completed
+    background-position: 120px 0;
   }
 }
 
 #formeo-logo-wrap {
-  display: inline-block;
-  width: 224px;
-  height: 150px;
-  mask-image: url("/assets/img/formeo-logo.svg");
-  mask-repeat: no-repeat;
-  background-image: linear-gradient(
-    -60deg,
-    black 45%,
-    rgba(255, 255, 255, 0.6) 50%,
-    black 55%
-  );
-  background-position: -120px 0;
-  background-size: 105% 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  width: 100%;
 
-  animation: shimmer 45s ease-in-out infinite;
+  #app-logo-text {
+    color: #fff;
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-right: 10px;
+    line-height: 1;
+  }
+
+  #app-subtitle {
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: normal;
+    opacity: 0.9;
+    line-height: 1;
+  }
 }
 
 #formData-popover[popover] {
-  width: 50%;
-  height: 50%;
-  padding: 16px;
-  border: 1px solid #ccc;
+  width: 60%;
+  height: 70%;
+  padding: 20px;
+  border: 1px solid #ddd;
   background-color: white;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   flex-direction: column;
-  border-radius: 8px;
 
   &:popover-open {
     display: flex;
@@ -223,10 +280,29 @@ body {
   .popover-header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
 
-    button {
-      background-color: rgba(75, 75, 75, 0.75);
+    h3 {
+      margin: 0;
+      font-size: 1.5em;
+      color: #673AB7;
+    }
+
+    div button {
+      margin-left: 8px;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 4px;
+      background-color: #673AB7;
       color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      &:hover {
+        background-color: #512DA8;
+      }
     }
   }
 
@@ -239,18 +315,104 @@ body {
   .formData-actions {
     display: flex;
     justify-content: flex-end;
-    width: 100%;
-    gap: 8px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
 
     button {
-      &:first-child {
-        background-color: rgb(131, 0, 0);
-        color: #fff;
+      margin-left: 10px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button[popovertargetaction="hide"] {
+      background-color: #6c757d;
+      color: white;
+      &:hover {
+        background-color: #5a6268;
       }
-      &:last-child {
-        background-color: rgb(0, 124, 0);
-        color: #fff;
+    }
+    button#submit-formData {
+      background-color: #28a745;
+      color: white;
+      &:hover {
+        background-color: #218838;
       }
     }
   }
+}
+
+#formData-editor {
+  height: calc(100% - 120px);
+  border: 1px solid #eee;
+  border-radius: 4px;
+}
+
+.formeo-editor-stage {
+  padding: 15px;
+}
+
+.render-form {
+  .formeo-render {
+    h1, h2, h3, p, label {
+      color: #333;
+      margin-bottom: 0.5em;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    button[type="button"] {
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
+}
+
+a {
+  color: #673AB7;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+    color: #512DA8;
+  }
+}
+
+#demo-footer nav a {
+  color: #fff;
+  &:hover {
+    color: #ddd;
+    text-decoration: none;
+  }
+}
+
+#demo-footer nav ul li a[href*="github.com/Draggable/formeo"]::before {
+  display: none;
+}
+
+#demo-footer nav ul li a[href*="github.com/Draggable/formeo"]::before {
+  content: "View on GitHub";
+  font-size: 0.9em;
+  display: inline-block;
+  padding: 5px;
 }

@@ -112,6 +112,7 @@
     "@draggable/i18n": "^1.0.7",
     "@draggable/tooltip": "^1.2.2",
     "lodash": "^4.17.21",
+    "pdf-lib": "^1.17.1",
     "sortablejs": "^1.15.3"
   },
   "release": {
